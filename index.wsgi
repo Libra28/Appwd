@@ -4,7 +4,7 @@
 # @Author  : Libra (69066656@qq.com)
 # @Link    : https://github.com/Libra28
 import sae
-#sae.add_vendor_dir('vendor')
+sae.add_vendor_dir('vendor')
 from mem_token import mem_token
 
 
