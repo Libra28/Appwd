@@ -1,6 +1,0 @@
-name: Appwd
-version: 1
-
-libraries:
-- name: requests
-  version: "2.10.0"
