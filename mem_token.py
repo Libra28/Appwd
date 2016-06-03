@@ -37,8 +37,7 @@ def mem_token():
         token = r['result']['access_token']
         expire_in = r['result']['expire_in']
         cache.set('token', token, expire_in - 500)
-        print token
     return token
 
-if __name__ is '__main__':
+if __name__ == '__main__':
     print mem_token()

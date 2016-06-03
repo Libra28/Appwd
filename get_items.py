@@ -6,18 +6,29 @@
 """
 获取全部商品
 """
-import requests,json,pickle
-from get_token import get_file_token
-access_token = get_file_token()
+import requests
+import json
+import pickle
+from mem_token import mem_token
+access_token = mem_token()
+
 
 def get_items():
-    with open('items.txt','wb') as file:
-        for i in range(1,9):
-            url = 'https://api.vdian.com/api?param={"page_num":%d,"page_size":200}&public={"method":"vdian.item.list.get","access_token":"%s","version":"1.0","format":"json"}' % (i,access_token)
+    page_num = 1
+    item_num = 1
+    with open('items.txt', 'wb') as file:
+        while True:
+            url = 'https://api.vdian.com/api?param={"page_num":%d,"page_size":200}&public={"method":"vdian.item.list.get","access_token":"%s","version":"1.0","format":"json"}' % (
+                page_num, access_token)
 
             r = json.loads(requests.get(url).text)
+            item_num = r['result']['item_num']
             items = r['result']['items']
-            pickle.dump(items,file)
+            if item_num == 0:
+                break
+            pickle.dump(items, file)
+            page_num += 1
 
-def get_pages():
-    a
+
+if __name__ == '__main__':
+    get_items()

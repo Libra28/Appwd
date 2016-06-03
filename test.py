@@ -6,7 +6,9 @@
 """
 
 """
-import requests,json,time
+import requests
+import json
+import time
 from get_token import get_file_token
 from cate_items import cate_items
 
@@ -26,4 +28,5 @@ url1 = 'https://api.vdian.com/api?param={"itemid":"%d"}&public={"method":"vdian.
 print url1
 """
 
-https://api.vdian.com/api?param={"itemid":"1865348296"}&public={"method":"vdian.seckill.item.delete","access_token":"9de9530574e8ac3ca20ee522bcf2342e00048975ec","version":"1.0","format":"json"}
+https:
+    //api.vdian.com / api?param = {"itemid": "1865348296"} & public = {"method": "vdian.seckill.item.delete", "access_token": "9de9530574e8ac3ca20ee522bcf2342e00048975ec", "version": "1.0", "format": "json"}

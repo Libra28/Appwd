@@ -8,7 +8,7 @@ V1865348296
 p4
 sVupdate_time
 p5
-V2016-05-31 10:24:01
+V2016-06-02 15:32:22
 p6
 sVfx_fee_rate
 p7
@@ -191367,7 +191367,7 @@ p12160
 sa(dp12161
 Vstock
 p12162
-I3
+I2
 sVprice
 p12163
 V558.00
@@ -191426,7 +191426,7 @@ VS\uff08\u6210\u4eba\uff09NBA0\u5929\u84dd
 p12190
 sasVstock
 p12191
-I12
+I11
 sa(dp12192
 Vstatus
 p12193

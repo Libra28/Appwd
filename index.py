@@ -1,10 +1,15 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# @Date    : 2016-06-02 20:37:16
+# @Author  : Libra (69066656@qq.com)
+# @Link    : https://github.com/Libra28
 import hashlib
 import web
 import lxml
 import time
 import os
-import urllib2,json
+import urllib2
+import json
 import urllib
 import re
 import random
@@ -12,6 +17,7 @@ import hashlib
 import cookielib
 from urllib import urlencode
 from lxml import etree
+
 
 class WeidianInterface:
 
@@ -22,9 +28,8 @@ class WeidianInterface:
         self.render = web.template.render(self.templates_root)
         """
 
-
     def GET(self):
-        #获取输入参数
+        # 获取输入参数
         data = web.input()
         print(data)
         """
