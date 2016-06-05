@@ -4,26 +4,32 @@
 # @Author  : Libra (69066656@qq.com)
 # @Link    : https://github.com/Libra28
 """
-获取分类商品
+根据关键字组搜索商品（Demo）
 """
 import json
 import pickle
 
 
-def find_items(item_id):
-    global count
-    count = 0
+def find_items():
     items = []
-    with open('items.txt', 'rb') as file:
-        for i in range(1, 9):
-            r = pickle.load(file)
-            for key in r:
-                if key['item_name'] == item_id:
-                    item = (key['itemid'], key['price'])
-                    items.append(item)
-                    count += 1
+    with open('items3.txt', 'rb') as file2:
+        for line in file2:
+            if find_current_item(line):
+                items.append(line)
     return items
 
+
+def find_current_item(keyword):
+    global count
+    count = 0
+    with open('items.txt', 'rb') as file:
+        r = pickle.load(file)
+        for item in r:
+            if keyword in item['item_name\r'].encode('UTF-8'):
+                count += 1
+                return True
+
 if __name__ == '__main__':
-    i = find_items('81018763')
-    print count, i[0]
+    i = find_items()
+    #r = find_current_item('15X2C011')
+    print count, i

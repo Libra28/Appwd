@@ -4,7 +4,7 @@
 # @Author  : Libra (69066656@qq.com)
 # @Link    : https://github.com/Libra28
 """
-获取指定商品并写入items.txt(Demo)
+获取全部商品并写入items.txt
 """
 import requests
 import json
@@ -24,25 +24,11 @@ def get_items(key=[]):
                 page_num, access_token)
             t = json.loads(requests.get(url).text, encoding='gbk')
             item_num = t['result']['item_num']
+            items.extend(t['result']['items'])
             if item_num == 0:
                 break
-            if key == []:
-                items.extend(t['result']['items'])
-                break
-            elif key[0] == 'cate_name':
-                for item in items:
-                    if item['cates'][0]['cate_name'] == key[1]:
-                        print item
-            elif key[0] == 'cate_id':
-                for item in items:
-                    if item['cates'][0]['cate_id'] == key[1]:
-                        print item
-            else key[0] == 'keyword':
-                for item in items:
-                    if key[1] in item['item_name']:
-                        print item
             page_num += 1
-        #pickle.dump(item, file)
+        pickle.dump(items, file)
 
 
 if __name__ == '__main__':

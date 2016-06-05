@@ -9,22 +9,24 @@
 import requests
 import json
 import time
-from get_token import get_file_token
-from cate_items import cate_items
+from mem_token import mem_token
+from manage_url import manage_url
+from find_cate_items import find_cate_items
 
 
 cate_id = 81018763
 discount = 0.38
-access_token = get_file_token()
-items = cate_items(str(cate_id))
+access_token = mem_token()
+items = find_cate_items(str(cate_id))
 
 
 for item in items:
     item_id = item[0]
     price = round(float(item[1]) * discount)
-    url = 'https://api.vdian.com/api?param={"itemid":"%s","price":"%d","quantity":"999999","start_time":"2016-06-2 15:23:00","end_time":"2016-06-27 14:58:00"}&public={"method":"vdian.seckill.item.set","access_token":"%s","version":"1.0","format":"json"}' % (
-        item_id, price, access_token)
-    r = requests.post(url).text
+    param = '{"itemid":"%s","price":"%d","quantity":"999999","start_time":"2016-06-2 15:23:00","end_time":"2016-06-27 14:58:00"}' % (
+        item_id, price)
+    public = '{"method":"vdian.seckill.item.set","access_token":"%s","version":"1.0","format":"json"}' % access_token
+    r = menage_url('post', param, public).text
     if r == '{"status":{"status_code":0,"status_reason":""},"result":true}':
         pass
     else:
