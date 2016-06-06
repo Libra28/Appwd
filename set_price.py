@@ -26,7 +26,7 @@ for item in items:
     param = '{"itemid":"%s","price":"%d","quantity":"999999","start_time":"2016-06-2 15:23:00","end_time":"2016-06-27 14:58:00"}' % (
         item_id, price)
     public = '{"method":"vdian.seckill.item.set","access_token":"%s","version":"1.0","format":"json"}' % access_token
-    r = menage_url('post', param, public).text
+    r = menage_url('post', param=param, public=public).text
     if r == '{"status":{"status_code":0,"status_reason":""},"result":true}':
         pass
     else:

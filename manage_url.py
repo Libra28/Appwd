@@ -10,8 +10,7 @@ import json
 import requests
 
 
-def manage_url(func, param, public, url='https://api.vdian.com/api'):
-    params = {'param': param, 'public': public}
+def manage_url(func, url='https://api.vdian.com/api', **params):
     r = eval('requests.' + func + '(url, params=params)')
     return r
 
@@ -22,4 +21,4 @@ if __name__ == '__main__':
     func = 'get'
     param = '{"page_num": 1, "page_size": 200}'
     public = '{"method": "vdian.item.list.get","access_token":"%s","version": "1.0", "format": "json"}' % access_token
-    print json.loads(manage_url(func, param, public).text)
+    print json.loads(manage_url(func, param=param, public=public).text)
